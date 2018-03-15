@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>angularjs开发过程中的问题及相关应用 | 闻道有先后，术业有专攻 | 一万个小时理论坚定拥趸者</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Samuel shang</h5>
+          <a href="mailto:277133779@qq.com" title="277133779@qq.com" class="mail">
+            
+              <span>2</span>
+            
+              <span>7</span>
+            
+              <span>7</span>
+            
+              <span>1</span>
+            
+              <span>3</span>
+            
+              <span>3</span>
+            
+              <span>7</span>
+            
+              <span>7</span>
+            
+              <span>9</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/codefine" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>angularjs开发过程中的问题及相关应用</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">angularjs开发过程中的问题及相关应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-12T02:42:58.000Z" itemprop="datePublished" class="page-time">
+  2017-09-12
+</time>
+
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-angularjs开发过程中的问题及相关应用"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">angularjs开发过程中的问题及相关应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-12 10:42:58" datetime="2017-09-12T02:42:58.000Z"  itemprop="datePublished">2017-09-12</time>
+
+            
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>angular 的特性依赖注入<br>依赖注入是一种软件设计模式，目的是处理代码之间的依赖关系，减少组件间的耦合。<br>如果没有使用 AngularJS，定义的时候依赖了，运行的时候不会自动查找依赖项,会报错 Cannot read property ‘get’ of undefined<br>而angularjs可以自动做依赖性的注入。<br>可以显式的使用$inject<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span></pre></td><td class="code"><pre><span class="line">myApp.controller(&apos;myCtrl&apos;, myCtrl);</span><span class="line">function myCtrl = ($scope, $http)&#123;</span><span class="line">    ...</span><span class="line">&#125;</span><span class="line">myCtrl.$inject = [&apos;$scope&apos;, &apos;$http&apos;];</span></pre></td></tr></table></figure></p>
+<h1 id="如何刷新当前页面？"><a href="#如何刷新当前页面？" class="headerlink" title="如何刷新当前页面？"></a>如何刷新当前页面？</h1><h1 id="angularjs-在controller-之间的通信的方式主要有三种："><a href="#angularjs-在controller-之间的通信的方式主要有三种：" class="headerlink" title="angularjs 在controller 之间的通信的方式主要有三种："></a>angularjs 在controller 之间的通信的方式主要有三种：</h1><p>1）作用域继承。利用子 Controller 控制父 Controller 上的数据。（父 Controller 中的数据要为引用类型，不能是基本类型）</p>
+<p>2) $rootScope   将数据挂到全局变量上 ，但会造成变量污染</p>
+<p>3）注入服务。把需要共享的数据注册为一个 service，在需要的 Controller 中注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;demo&apos;)</span><br><span class="line">    .factory(&apos;Data&apos;, function()&#123;</span><br><span class="line">    	return &#123;</span><br><span class="line">    	    name: &apos;htf&apos;</span><br><span class="line">    	&#125;;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p> 各个controller可以注入服务直接使用$scope.data = Data;</p>
+<p>4）基于事件。Angular 为 $scope 提供了冒泡和隧道事件传播机制，$broadcast 会把事件广播给所有子 Controller，而 $emit 则会将事件冒泡传递给父 Controller，$on 则是 Angular的事件监听函数，利用这三者，可以实现上下级和同级（需要构造一个共同的父级 Controller）之间的通信。<br><em>上下级之间</em><br>如果是子 Controller 往父 Controller 上发送事件（从作用域往上发送事件），使用$scope.$emit(“someEvent”, {});<br>如果是父 Controller 往子 Controller 上发送事件（从作用域往下发送事件），使用$scope.$broadcast(“someEvent”, {});<br>无论是 $emit 还是 $broadcast 发送的事件，都用$scope.$on 接收：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.$on(&quot;someEvent&quot;, function(event, data) &#123;</span><br><span class="line">    // 这里取到发送过来的数据 data</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>同级之间利用事件通信有两种方法。一种是利用上下级之间事件传播的变形，另一种是借助 $rootScope 。</p>
+<ul>
+<li>借助父 controller,通过父 Controller 作为中介进行传递的话，子 Controller 触发的事件名和父 Controller 广播用的事件名不能一样，否则会进入死循环。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.controller(&apos;outerCtrl&apos;, [&apos;$scope&apos;, function($scope)&#123;</span><br><span class="line">    $scope.name = &apos;htf&apos;;</span><br><span class="line">    $scope.$on(&apos;dataChanged&apos;, function(event, data)&#123;</span><br><span class="line">        $scope.name = data;</span><br><span class="line">        // 2. 父 Ctrl 监听到 dataChanged 时间后，触发 changeData 事件</span><br><span class="line">        $scope.$broadcast(&apos;changeData&apos;, data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;])</span><br><span class="line"></span><br><span class="line">.controller(&apos;innerCtrl1&apos;, [&apos;$scope&apos;, function($scope)&#123;</span><br><span class="line">    $scope.change = function()&#123;</span><br><span class="line">        // 1. 子 Ctrl1 中数据改变之后触发 dataChanged 事件</span><br><span class="line">        $scope.$emit(&apos;dataChanged&apos;, $scope.name);</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;])</span><br><span class="line"></span><br><span class="line">.controller(&apos;innerCtrl2&apos;, [&apos;$scope&apos;, function($scope)&#123;</span><br><span class="line">    </span><br><span class="line">    // 3. 监听到 changeData 事件后，改变子 Ctrl2 中 数据</span><br><span class="line">    $scope.$on(&apos;changeData&apos;, function(event, data)&#123;</span><br><span class="line">        $scope.name = data;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>借助 $rootScope</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.controller(&apos;innerCtrlA&apos;, [&apos;$scope&apos;, &apos;$rootScope&apos;, function($scope, $rootScope)&#123;</span><br><span class="line">    $scope.change = function()&#123;</span><br><span class="line">        // 广播事件</span><br><span class="line">        $rootScope.$broadcast(&apos;nameChanged&apos;, $scope.name);</span><br><span class="line">    &#125;</span><br><span class="line">    $rootScope.$on(&apos;nameChanged&apos;, function(event, data)&#123;</span><br><span class="line">        $scope.name = data;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;])</span><br><span class="line"></span><br><span class="line">.controller(&apos;innerCtrlB&apos;, [&apos;$scope&apos;, &apos;$rootScope&apos;, function($scope, $rootScope)&#123;</span><br><span class="line">    $scope.change = function()&#123;</span><br><span class="line">        $rootScope.$broadcast(&apos;nameChanged&apos;, $scope.name);</span><br><span class="line">    &#125;</span><br><span class="line">    // 监听事件</span><br><span class="line">    $rootScope.$on(&apos;nameChanged&apos;, function(event, data)&#123;</span><br><span class="line">        $scope.name = data;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
+<p>5）发布-订阅 可避免使用$broadcast,$broadcast广播方法要消耗更多的资源，浪费性能，因为广播事件会深入到该作用域的所有子孙作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">myApp.service(&apos;messageService&apos;,function($rootScope) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    publish:function(name,params) &#123;</span><br><span class="line">      $rootScope.$emit(name,params);</span><br><span class="line">    &#125;,</span><br><span class="line">    subscribe:function(name,listener) &#123;</span><br><span class="line">      $rootScope.$on(name,listener);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">myApp.controller(&apos;home&apos;,function($scope,messageService) &#123;</span><br><span class="line">  $scope.showDialog = false;</span><br><span class="line">  $scope.show = function() &#123;</span><br><span class="line">    messageService.publish(&apos;dialog&apos;,&#123;show:true&#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  messageService.subscribe(&apos;dialog&apos;,function(event,param) &#123;</span><br><span class="line">    $scope.showDialog = param.show</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">myApp.controller(&apos;dialog&apos;,function($scope,messageService) &#123;</span><br><span class="line">  $scoep.hide = function() &#123;</span><br><span class="line">    messageService.publish(&apos;dialog&apos;,&#123;show:false&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=&quot;TestCtrl&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;div ng-if=&quot;show&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">function TestCtrl($scope)&#123;</span><br><span class="line">    $scope.show = true;</span><br><span class="line">    $scope.name = &apos;htf&apos;;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>把 p 元素和 input 元素绑定同一个变量，你本以为，在输入框输入内容，p 中显示的肯定也是随之变化的。然而并不是这样，不管 input 中的元素怎么变， p 元素中的都没变化，这是什么原因呢。<br>每个 Angular 应用默认有一个根作用域 $rootScope， 根作用域位于最顶层，从它往下挂着各级作用域。<br>原因在于，InnerCtrl 中并未定义 x 这个变量，取值的时候，会沿着原型链向上找，找到了 OuterCtrl 中定义的 x ，然后赋值给自己，在 InnerCtrl 的输入框输入值时，改变的是 InnerCtrl 中的 x ，而对 OuterCtrl 中的 x 无影响。此时，两个 x 是独立的。<br>那么，如果上下级作用域想共用变量怎么办呢？答案是使用引用类型变量。<br>ng-if 中的作用域</p>
+<p>前面讲的是两级控制器之间的作用域，那跟前面提到的问题有什么关系呢？那个看着不是只有一个 Controller 吗？</p>
+<p>其实，并不是只有 Controller 可以创建作用域，ng-if 等指令也会（隐式地）产生新作用域。</p>
+<p>总结下来就是，ng-if、 ng-switch 、 ng-include 等会动态创建一块界面的东西，都是自带一级作用域。</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-11-21T13:28:07.000Z" itemprop="dateUpdated">2017-11-21 21:28:07</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2017/09/12/angularjs开发过程中的问题及相关应用/" target="_blank" rel="external">http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Samuel shang">
+            Samuel shang
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/&title=《angularjs开发过程中的问题及相关应用》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/&title=《angularjs开发过程中的问题及相关应用》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2017/09/12/vue组件设计/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue组件设计</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2017/09/12/使用地图服务/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用地图服务</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何刷新当前页面？"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何刷新当前页面？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#angularjs-在controller-之间的通信的方式主要有三种："><span class="post-toc-number">2.</span> <span class="post-toc-text">angularjs 在controller 之间的通信的方式主要有三种：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作用域问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">作用域问题</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.lujingtao.com" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Samuel shang &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/&title=《angularjs开发过程中的问题及相关应用》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/&title=《angularjs开发过程中的问题及相关应用》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvUlEQVR42u3awa4bIRAEQP//TztSTpGi3e0ewM9RipOF1zbFAcYNr1fc3r9b+/rPnr/7r55P+jc3PDw8vNHQr9r9cJMpuH8y779nX44QDw8P7xhvNtx8OtotJOFFE4SHh4f3o7yrEnk2Hcmn7qcPDw8P71/htdvA3i0EDw8P73t4CWD2k/cbQzKV+XTj4eHhfYZ37gDs3OuvON/Dw8P7L3nvUcu/7cS0FuPEw8PDO8DLy9mVAjopqdt1vjgYw8PDwzvGWwle21Bjpb+eIDw8PLwDvNmynvxkfrmqjW43lPJ4eHh4y7y8sJ5tD/mA2p5oEvHw8PA28WZhQX5A1V5HyJ+Pwgg8PDy8Y7zZn/+8J6/lZ89ffhYPDw/vGK/929/ebtobKxRbFx4eHt5hXh4lJFcHZgFEO6EPhT4eHh7eAd4seM1L6lnkMbvE8JBP4+Hh4W3itYf9+SFZsXCXievwTA8PDw/vAK8tkWfg9sJBviU8nO/h4eHhHea1Vfns3fwKwnCDwcPDwzvAayPUduFe//6k4C5iXDw8PLxl3vBPfrmUt0V5+50PMS4eHh7eMd5KLDu7OJUMOu+5/MeAh4eHt5WXH3rNgtScmh+A5YU+Hh4e3gleEonOMCsle75FPUwfHh4e3gd5syK7XdDbS671kRgeHh7eAd6uOCCPYlcK5YfQAQ8PD+8jvJWfaUOEfPpmk1Wk1Hh4eHgLvFkhOwsj1sOOfBur7y/g4eHhxbx32ZLLBCsD2lXERzcj8PDw8OanVFFrI4acfT+UtrxuI2A8PDy8GS/ZDJJ3ZxtAS63jDzw8PLxjvGRRXroCVV47eJUNDw8P75t5s6g3WcpXNpuHCwR4eHh4P8Rry9z1DSYv0B+OwfDw8PAO8PIwol2s86W/vXQVTQ0eHh7eAV57AJYMqO1pY982IMbDw8PbxPsF/9n5Poid6/QAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    
+</body>
+</html>
