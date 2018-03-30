@@ -3,6 +3,22 @@
   
     
     <entry>
+      <title>深入浅出REST</title>
+      <link href="/2018/03/30/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAREST/"/>
+      <content type="html"><![CDATA[<h3 id="REST定义了应该如何正确地使用Web标准，例如HTTP和URI。"><a href="#REST定义了应该如何正确地使用Web标准，例如HTTP和URI。" class="headerlink" title="REST定义了应该如何正确地使用Web标准，例如HTTP和URI。"></a>REST定义了应该如何正确地使用Web标准，例如HTTP和URI。</h3><p>如果你在设计应用程序时能坚持REST原则，那就预示着你将会得到一个使用了优质Web架构（这将让你受益）的系统。</p><ul><li>为所有“事物”定义ID</li><li>将所有事物链接在一起</li><li>使用标准方法</li><li>资源多重表述</li><li>无状态通信</li></ul><p>RESTful Web Service (又称 RESTful Web API) 是一个使用 HTTP 并符合 REST 原则的 Web 服务。我们知道，通过 URL 可以传送 HTTP请求进行状态转换。</p><p>在 RESTful 每个资源有自己独立的 URI， Client 从资源集合或单个资源开始进入，不管是资源集合或单个资源，我们都能与 HTTP 方法配合使用，例如，GET 下载，PUT 更新，POST 新增，DELETE 删除。</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>web-service</title>
+      <link href="/2018/03/30/web-service/"/>
+      <content type="html"><![CDATA[<h2 id="Web-Service简单地说-也就是服务器如何向客户端提供服务"><a href="#Web-Service简单地说-也就是服务器如何向客户端提供服务" class="headerlink" title="Web Service简单地说, 也就是服务器如何向客户端提供服务."></a>Web Service简单地说, 也就是服务器如何向客户端提供服务.</h2><p>常用的方法有:</p><ol><li><a href="http://en.wikipedia.org/wiki/Remote_procedure_call" target="_blank" rel="noopener">RPC</a> 所谓的远程过程调用 (面向方法)</li><li><a href="http://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="noopener">SOA</a> 所谓的面向服务的架构(面向消息)</li><li><a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener">REST</a> 所谓的 <strong>Representational state transfer</strong> (面向资源)</li></ol><p><strong>RPC</strong></p><p>即远程过程调用, <strong>像调用本地服务(方法)一样调用服务器的服务(方法)</strong>.</p><p>通常的实现有 <a href="http://en.wikipedia.org/wiki/Xml-rpc" target="_blank" rel="noopener">XML-RPC</a> , <a href="http://en.wikipedia.org/wiki/JSON-RPC" target="_blank" rel="noopener">JSON-RPC</a> , 通信方式基本相同, 所不同的只是传输数据的格式.向服务器发送一个过程调用的方法及其参数, 得到服务器返回的方法执行的结果.</p><p><strong>REST</strong></p><p><a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener">REST</a> 不是一种协议,它是一种架构, 远程通信方法，一种 <a href="http://en.wikipedia.org/wiki/Web_Service" target="_blank" rel="noopener">Web Service</a> 能够如果满足 <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener">REST</a> 的几个条件, 通常就称这个系统是 <em>Restful</em> 的.</p><ol><li>C/S结构 (这是Internet服务的一个基本特征)</li><li>无状态 (很熟悉吧,呵呵)</li><li>可以cache (想起了浏览器?)</li><li>分层系统 (想起了无数的架构?)</li><li>统一的接口 (如果这是可能的,程序员有福了, :D)</li><li>code on demand(可选, 其实是一种扩展性的要求)</li></ol><p><a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener">REST</a> 的三个要素是 <strong>唯一的资源标识</strong>, <strong>简单的方法</strong> (此处的方法是个抽象的概念), <strong>一定的表达方式</strong>.</p><h1 id="RPC与REST的区别"><a href="#RPC与REST的区别" class="headerlink" title="[RPC与REST的区别]"></a>[RPC与REST的区别]</h1><p><strong>RPC是以动词为中心的, REST是以名词为中心的</strong>, 此处的 动词指的是一些方法, 名词是指资源.</p><p>  以动词为中心,意味着,当你要需要加入新功能时,你必须要添加更多的动词, 这时候服务器端需要实现 相应的动词(方法), 客户端需要知道这个新的动词并进行调用.</p><p>而以名词为中心, 假使我请求的是 hostname/friends/, 无论这个URI对应的服务怎么变化,客户端是无需 关注和更新的,而这种变化对客户端也是透明的.</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="[参考资料]"></a>[参考资料]</h1><ol><li><a href="http://en.wikipedia.org/wiki/Web_Service" target="_blank" rel="noopener">Web Service</a></li><li><a href="http://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="noopener">SOA</a></li><li><a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener">REST</a></li><li><a href="http://en.wikipedia.org/wiki/Remote_procedure_call" target="_blank" rel="noopener">RPC</a></li><li><a href="http://en.wikipedia.org/wiki/Cloud_computing" target="_blank" rel="noopener">Cloud Computing</a></li></ol>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>Angularjs中controller之间的通信</title>
       <link href="/2017/12/26/Angularjs%E4%B8%ADcontroller%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/"/>
       <content type="html"><![CDATA[<h2 id="在-Angular-中，Controller-之间通信的方式主要有三种："><a href="#在-Angular-中，Controller-之间通信的方式主要有三种：" class="headerlink" title="在 Angular 中，Controller 之间通信的方式主要有三种："></a>在 Angular 中，Controller 之间通信的方式主要有三种：</h2><ul><li>作用域继承:父 Controller 中的数据要为引用类型，不能是基本类型</li><li>注入服务: 把需要共享的数据注册为一个 <code>service</code>，在需要的 Controller 中入。</li><li>基于事件。利用 Angular 的事件机制，使用 <code>$on</code>、<code>$emit</code> 和 <code>$boardcast</code></li></ul>]]></content>
