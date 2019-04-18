@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>js对Date日期的使用和处理 | 闻道有先后，术业有专攻 | 一万个小时理论坚定拥趸者</title>
+    <title>vue组件系统 | 闻道有先后，术业有专攻 | 一万个小时理论坚定拥趸者</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="">
@@ -143,7 +143,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>js对Date日期的使用和处理</span>
+            <span>vue组件系统</span>
             
         </div>
         
@@ -156,11 +156,11 @@
 <header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">js对Date日期的使用和处理</h1>
+        <h1 class="title">vue组件系统</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-09-14T02:59:58.000Z" itemprop="datePublished" class="page-time">
-  2017-09-14
+                <time datetime="2018-03-31T12:37:40.000Z" itemprop="datePublished" class="page-time">
+  2018-03-31
 </time>
 
 
@@ -187,12 +187,12 @@
 
 
 <div class="container body-wrap">
-    <article id="post-js对Date日期的使用和处理"
+    <article id="post-vue组件系统"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">js对Date日期的使用和处理</h1>
+        <h1 class="post-card-title">vue组件系统</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-09-14 10:59:58" datetime="2017-09-14T02:59:58.000Z"  itemprop="datePublished">2017-09-14</time>
+            <time class="post-time" title="2018-03-31 20:37:40" datetime="2018-03-31T12:37:40.000Z"  itemprop="datePublished">2018-03-31</time>
 
             
 
@@ -206,7 +206,15 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>new Date();</p>
+            <h2 id="组件（Component）是-Vue-js-最强大的功能之一"><a href="#组件（Component）是-Vue-js-最强大的功能之一" class="headerlink" title="组件（Component）是 Vue.js 最强大的功能之一"></a>组件（Component）是 Vue.js 最强大的功能之一</h2><h4 id="使用-slot-分发内容"><a href="#使用-slot-分发内容" class="headerlink" title="使用 slot 分发内容"></a>使用 slot 分发内容</h4><p><strong>开发过程中，常常需要在子组件内添加新的内容，这时候可以在子组件内部留一个或者多个插口 <slot></slot></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span><span class="line">6</span><span class="line">7</span><span class="line">8</span><span class="line">9</span><span class="line">10</span><span class="line">11</span><span class="line">12</span><span class="line">13</span><span class="line">14</span><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span><span class="line">&lt;template&gt;</span><span class="line">    &lt;div&gt;</span><span class="line">        &lt;slot&gt;</span><span class="line">        &lt;/slot&gt;</span><span class="line">        &lt;slot name=&quot;first&quot;&gt;&lt;/slot&gt;</span><span class="line">        &lt;slot name=&quot;second&quot;&gt;&lt;/slot&gt;</span><span class="line">    &lt;/div&gt;</span><span class="line">&lt;/template&gt;</span><span class="line">然后在调用这个子组件的时候加入内容</span><span class="line">&lt;child-component&gt;</span><span class="line">    &lt;h1&gt;不具名slot插口&lt;/h1&gt;</span><span class="line">    &lt;h2 slot=&quot;first&quot;&gt;对应first插口&lt;/h2&gt;</span><span class="line">    &lt;h3 slot =&quot;second&quot;&gt;对应second插口&lt;h3&gt;</span><span class="line">&lt;/child-component&gt;</span></pre></td></tr></table></figure>
+<p><strong><slot> 中还可以作为一个作用域，在子组件中定义变量，然后在父组件中自定义渲染的方式</slot></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;一个简单的组件&lt;/p&gt;</span><br><span class="line">        &lt;slot name=&quot;nav&quot; v-for=&quot;nav in navs&quot; :text=&quot;nav.text&quot;&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;child-component :navs=&quot;navs&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;template slot=&quot;nav&quot; scope=&quot;props&quot;&gt;</span><br><span class="line">    &lt;p&gt; &#123;&#123;props.text&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;/child-component&gt;</span><br><span class="line"></span><br><span class="line">这个示例中，首先在子组件中添加 &lt;slot&gt;，并在子组件中定义了数组变量 navs</span><br><span class="line"></span><br><span class="line">然后在父组件中以作用域 &lt;template&gt; 添加内容，其中 scope 是固有属性，它的值对应一个临时变量 props</span><br><span class="line"></span><br><span class="line">而 props 将接收从父组件传递给子组件的参数 navs</span><br></pre></td></tr></table></figure></p>
+<h4 id="动态组件实现tab切换效果"><a href="#动态组件实现tab切换效果" class="headerlink" title="动态组件实现tab切换效果"></a>动态组件实现tab切换效果</h4><p>这样的功能可以通过路由 vue-router 实现，但路由更适合较大的组件，而且 url 会有相应的改变<br>Vue 自身保留的 <component> 元素，可以将组件动态绑定到 is 特性上，从而很方便的实现动态组件切换</component></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">    &lt;component v-bind=&quot;tab&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/component&gt;</span><br><span class="line"></span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 递归组件</span><br><span class="line"></span><br><span class="line">当组件拥有 name 属性的时候，就可以在它的模板内递归的调用自己，这在开发树形组件的时候十分有效</span><br></pre></td></tr></table></figure>
+<template><br>    <div><br>        <p>一个简单的组件</p><br>        <simple></simple><br>    </div><br></template>
+
+<p><script><br>    export default{<br>        name:simple<br>    }</p>
+<p></script><br><code>`</code></p>
 
         </div>
         
@@ -214,12 +222,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-09-14T03:00:18.000Z" itemprop="dateUpdated">2017-09-14 11:00:18</time>
+    Last updated: <time datetime="2018-03-31T12:53:38.000Z" itemprop="dateUpdated">2018-03-31 20:53:38</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2017/09/14/js对Date日期的使用和处理/" target="_blank" rel="external">http://yoursite.com/2017/09/14/js对Date日期的使用和处理/</a>
+        转载注明出处，原文地址：<a href="/2018/03/31/vue组件系统/" target="_blank" rel="external">http://yoursite.com/2018/03/31/vue组件系统/</a>
         
     </div>
     <footer>
@@ -246,7 +254,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/14/js对Date日期的使用和处理/&title=《js对Date日期的使用和处理》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/31/vue组件系统/&title=《vue组件系统》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -258,7 +266,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/14/js对Date日期的使用和处理/&title=《js对Date日期的使用和处理》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/31/vue组件系统/&title=《vue组件系统》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -284,18 +292,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="prev">
-      <a href="/2017/09/17/web路由/" id="post-prev" class="post-nav-link">
+      <a href="/2018/04/18/setTimeout-setInterval/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">web路由</h4>
+        <h4 class="title">setTimeout setInterval</h4>
       </a>
     </div>
   
 
   
     <div class="next">
-      <a href="/2017/09/14/登录验证/" id="post-next" class="post-nav-link">
+      <a href="/2018/03/30/深入浅出REST/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">登录验证</h4>
+        <h4 class="title">深入浅出REST</h4>
       </a>
     </div>
   
@@ -303,6 +311,14 @@
 
 
     
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件（Component）是-Vue-js-最强大的功能之一"><span class="post-toc-number">1.</span> <span class="post-toc-text">组件（Component）是 Vue.js 最强大的功能之一</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用-slot-分发内容"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">使用 slot 分发内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态组件实现tab切换效果"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">动态组件实现tab切换效果</span></a></li></ol></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
@@ -381,7 +397,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/14/js对Date日期的使用和处理/&title=《js对Date日期的使用和处理》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/31/vue组件系统/&title=《vue组件系统》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -393,7 +409,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/14/js对Date日期的使用和处理/&title=《js对Date日期的使用和处理》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/31/vue组件系统/&title=《vue组件系统》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -405,7 +421,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3aQVLDQAwEwPz/01DFCSo4HkkryKF9ShnH3s7BEqN9POLj4+u4Ov/9r1efr771fM3zHa6uPHbg4eHhtZZ+dbxe6OsF5UtMnv76npf3x8PDw1vjJYvOeUkJSc4n5efGgoeHh/evvNcPSM7kLXsCxsPDw3t/Xh5AJIUkiTCqLT4eHh7eX/KqcUA1kD0bZKxkLXh4eHgxr9ryvsPnxfkeHh4e3mCq3htKVV/cybd6q8XDw8Pb4OXxwamoIg8metu8ogfg4eHhHeJNxlrV+GAS1yZX/lIY8PDw8A7xqjFo0vLm7W+1DFQLBh4eHt4erxoNzH+OfNCVtP43kz08PDy8o7xkQfmwvxrd5gFu0l6Xcxc8PDy8Ma8XH0y2T1WD46Q8FL6Gh4eHN+DlEWrvh8h/mgRcLTl4eHh4G7zqCL8a5s7b9zy2wMPDw9vm5YvrFYOk5c2b4/Ia8PDw8NZ41RY2D1h7m7p6465fVoiHh4e3wKu+vs9GvZOtBmUYHh4e3lFeLzKYL7Q6Qus16Hh4eHhneb2Xb3WINdmMlReYy/8Y8PDw8JZ5p17QzQ1Sg20HNwMwPDw8vEO8ybBqHs72AtwEhoeHh7fHmzNObSzo3fNmhXh4eHhrvN7iogozDjWqxQAPDw9vmzcZek2KRDWirT4l+o8BDw8P7yhvfru8Fc7xvTvg4eHhbfB6G6R6A7Ckcc8b/ai5x8PDw1vjVRvlpC2uLvdUe42Hh4e3x/soHvPCUC0A1fM/VoWHh4e3wKuGEb0RVDUL6YXIeHh4eH/Jy9vfSTGoNuh5aHtTGPDw8PDWeJNiMHnFT2KI6Ho8PDy8N+Pl4UJehHqbBm7CXDw8PLx/4vXC3N74qhp5XK4EDw8Pb41XHUrlr/Xk5Z7Dmjsj8PDw8I7yJgOw3nisOiqbXImHh4d3lPcJN9PkKT3ExJkAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW6DQAwF0Nz/0lTqqlIF+bahDcybVRRRmEclxx779YrX9r1+fv65fl+ZfL8drtcVCwMD47aM5HZ728rZ1aeXqRgYGAsw8q0kW8y3cvzKkvtjYGBgHKeDZ30+Th8xMDAwJgE3KWvz0vfffjcwMDBuwsiLyfyb3snY5bU4BgbGDRm9xsDffL68v4GBgfHxjG2w8oZBEkAn+8HAwHg2o5rS9Y7+zxraeLNDDAyMRzN6YxC9wrWXgI5ePQYGxiMYVwTK6nFevpMT3joGBsatGMml1VvnrYLqPXdfGQYGxsKM3oBF9Sht3ubEwMB4NiMvF6tHYMl2J9Td/wkGBsbjGEmxOikve6lktfDGwMBYjZEfrlXTyuodyi0BDAyMhzKSA/1eSpekkvMgHpWyGBgYN2fkD6jCzj28e5M4YmBgLMDoDWOdxc4HO3Z/DDAwMBZgTELecXo3KV/zNBEDA+PZjGSsIQ981aO3eQjGwMBYh1FNAfMH9B6fPxcDA2MdxrljE9Xt9loIo1wSAwPjtoz8z6olbq9VUC5uMTAwHs3oBcR5q6A6FtYbzsDAwLg7Yyuu48DXKz4ngxcYGBgrMCb5VTV1y0/+ktQTAwNjNUbewkw2Oh+k6LUlMDAwVmDkQbYXs3uHa4W0EgMDA2M8xtoLpvmAGgYGBkb++N5Wqk2IZvWMgYFxc8Zk/DS5ft5awMDAWJnRK0En4bjXLr2kv4GBgfHpjC/oVUHP/WCRrgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
