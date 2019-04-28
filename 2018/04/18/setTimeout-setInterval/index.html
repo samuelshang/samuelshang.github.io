@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>setTimeout setInterval | 闻道有先后，术业有专攻 | 一万个小时理论坚定拥趸者</title>
+    <title>setTimeout setInterval | 闻道有先后,术业有专攻 | 一万个小时理论坚定拥趸者</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="">
@@ -207,6 +207,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             
             <h2 id="window下的方法主要用法"><a href="#window下的方法主要用法" class="headerlink" title="window下的方法主要用法"></a>window下的方法主要用法</h2><h4 id="1-阻塞异步执行"><a href="#1-阻塞异步执行" class="headerlink" title="1.阻塞异步执行"></a>1.阻塞异步执行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span><span class="line">6</span><span class="line">7</span><span class="line">8</span><span class="line">9</span><span class="line">10</span><span class="line">11</span><span class="line">12</span><span class="line">13</span><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><span class="line">        <span class="built_in">console</span>.log(i);</span><span class="line">    &#125;, <span class="number">1000</span>);</span><span class="line">&#125;</span><span class="line"><span class="comment">//结果：1 秒之后，同时输出 5 个 5。同步循环已经执行完毕，才会执行事件队列里的回调</span></span><span class="line"></span><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123; </span><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;      <span class="comment">//立刻执行函数</span></span><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><span class="line">            <span class="built_in">console</span>.log(i);  </span><span class="line">         &#125;,<span class="number">1000</span>);  </span><span class="line">    &#125;)(i);  <span class="comment">//闭包保存局部变量的引用</span></span><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>promise异步会优先执行</p>
 <h4 id="2-改变this的指向"><a href="#2-改变this的指向" class="headerlink" title="2.改变this的指向"></a>2.改变this的指向</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;,<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;.bind(<span class="keyword">this</span>),<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -215,16 +216,16 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-19T01:29:00.000Z" itemprop="dateUpdated">2019-04-19 09:29:00</time>
+    最后更新时间：<time datetime="2019-04-19T06:16:46.000Z" itemprop="dateUpdated">2019-04-19 14:16:46</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2018/04/18/setTimeout-setInterval/" target="_blank" rel="external">http://yoursite.com/2018/04/18/setTimeout-setInterval/</a>
+        转载注明出处，原文地址：<a href="/2018/04/18/setTimeout-setInterval/" target="_blank" rel="external">https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/</a>
         
     </div>
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://samuelshang.github.io">
             <img src="/img/avatar.jpg" alt="Samuel shang">
             Samuel shang
         </a>
@@ -247,7 +248,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -259,7 +260,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -390,7 +391,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后，术业有专攻&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -402,7 +403,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后，术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/&title=《setTimeout setInterval》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -414,7 +415,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aS27DMAwFwNz/0inQXZEmeSTttJbGK6P+SOMArEjqdouP+/fxeP54z7M7X199ds/BBwYGxmUZ95fH6wHmzz57T/5+DAyMfRhJkK1O7tiQ/WYUDAwMjNare+EYAwMD41hGkrImS70/DrgYGBgXYSQD5KWx6rMfzcUxMDAuyJg0Bs4+/1B/AwMD4x8z7sUjD5rJWIfNCgMDY2lGsiyrDpY/myTSSfMAAwNjB0Z1IThpW062XJQxGBgYSzB6y74zCv15eP3lHAMDY2nG2SEymXSeKhc+CgYGxnKMvEFYbSL2Nk8017YYGBgbMPKQ2ttIUV1KljEYGBiLMvLyfa+d2Ws/lK9iYGAszUhWVr3gOE9iq6U9DAyM3Ri9xWKvDXDspg0MDIz1GNXJJYNNNmpUAzcGBsYOjPnGr0naWS3MvRkLAwNjUUbeXOwV8XvN0eQfQOErYmBgbMDoJa5VTK9tgIGBsQOjGvLyzal5s7OHefPLYGBgLMQoZLrxFHvthLyD8TSJxcDA2ICRB9Yqu3pnviQt7wrBwMC4ICMJjr0J5RPNDwwMjD0Zva0VOf680tuPqxgYGEszqsGu+pdeAa63dQMDA2NtxqQxmRf988+UhONmvouBgXFxRp6s5g3IXglvlMpiYGBsz+gt76ol/iRxxcDAwOi1CpIAPSmfYWBgYPSWdJNgOgn3GBgYuzGOagxMtlnMl6cYGBiLMr4AfxjMUio6DkgAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aQY7jMAwEwPz/0zvAXjN2uinJmwXKp4GR2CoNIDIkX6/4+vP3uvr7/s77t94/+X7dr2HzhYeHhzda+v1rru7kT07uJ2urtwYPDw/vGC8JBgkvCSFtaJm9HQ8PD+8beMmRPYPlQQIPDw/vf+flSfBKsMHDw8P7Tl5SjFhJeZNSwn3B4nitBQ8PD6/rLi01wJ7/+9H+Hh4eHl4cEvJ2flu2aEPOcLV4eHh4B3hJmXU2FjAbIFhJkYtfDHh4eHhbeW37qn7ZqHiRP/OX7+Lh4eFt5eWN/F3l3Rm+bbDh4eHhPcNbafDvqh+3g1kf0no8PDy8R3j5YFNenM0BSWBI2K98fgEPDw+v5M2GBtrWfnK4twWObcEJDw8Pr+S1hdH8yG4b/wk1+f9cTkbg4eHhHeDdv3I2SpWXg9dLEpfFCDw8PLxjvLwQsBe5Ujj+sE48PDy8Y7y8RDtLiNtRgG0DW3h4eHgHeCtfW2/zt6R2DXh4eHineckR3LajZgWF2TPrXh8eHh7eiJcfoytDA+39JERFYDw8PLxjvLY4u3dgK2EMi8J4eHh4B3iz9lJbrl1psOVB6PL5eHh4eFt56+2ulcT3Ht+20PDw8PCe4c3KCm3bPk+F84S+bnTh4eHhPcib9dDydle7re1IFh4eHt5eXjv21KbUbQMsP+GXfjHg4eHhHePVEWZ5XCAJTkWYwcPDwzvAa3+z5wttN2XW7io+j4eHh7eJt9L6mgWPduPa9thSfw8PDw8v4K0UAto7ecqebyseHh7ev+K1I1Z5YJilwu1IVlSGwMPDwzvAW399frjnaXq7cXh4eHjfxlsfWt2VrBdlETw8PLyv4bXpeLtls/T6wzQuHh4e3lbe3mJEfr/dsnZT8PDw8E7wZiXX5MUrrbW25PFaufDw8PBS3g/EkJxx6sgaIgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

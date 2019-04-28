@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>闻道有先后，术业有专攻</title>
+  <title>闻道有先后,术业有专攻</title>
   
   <subtitle>一万个小时理论坚定拥趸者</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-04-19T01:31:08.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://samuelshang.github.io/"/>
+  <updated>2019-04-28T08:38:07.000Z</updated>
+  <id>https://samuelshang.github.io/</id>
   
   <author>
     <name>Samuel shang</name>
@@ -17,9 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>node入门</title>
+    <link href="https://samuelshang.github.io/2019/04/28/node%E5%85%A5%E9%97%A8/"/>
+    <id>https://samuelshang.github.io/2019/04/28/node入门/</id>
+    <published>2019-04-28T08:37:23.000Z</published>
+    <updated>2019-04-28T08:38:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>##了解</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##了解&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>js异步编程</title>
-    <link href="http://yoursite.com/2019/04/19/js%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/04/19/js异步编程/</id>
+    <link href="https://samuelshang.github.io/2019/04/19/js%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    <id>https://samuelshang.github.io/2019/04/19/js异步编程/</id>
     <published>2019-04-19T01:30:56.000Z</published>
     <updated>2019-04-19T01:31:08.000Z</updated>
     
@@ -40,8 +62,8 @@
   
   <entry>
     <title>react核心</title>
-    <link href="http://yoursite.com/2019/04/19/react%E6%A0%B8%E5%BF%83/"/>
-    <id>http://yoursite.com/2019/04/19/react核心/</id>
+    <link href="https://samuelshang.github.io/2019/04/19/react%E6%A0%B8%E5%BF%83/"/>
+    <id>https://samuelshang.github.io/2019/04/19/react核心/</id>
     <published>2019-04-19T01:29:34.000Z</published>
     <updated>2019-04-19T01:31:34.000Z</updated>
     
@@ -62,12 +84,12 @@
   
   <entry>
     <title>setTimeout setInterval</title>
-    <link href="http://yoursite.com/2018/04/18/setTimeout-setInterval/"/>
-    <id>http://yoursite.com/2018/04/18/setTimeout-setInterval/</id>
+    <link href="https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/"/>
+    <id>https://samuelshang.github.io/2018/04/18/setTimeout-setInterval/</id>
     <published>2018-04-18T13:05:06.000Z</published>
-    <updated>2019-04-19T01:29:00.000Z</updated>
+    <updated>2019-04-19T06:16:46.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="window下的方法主要用法"><a href="#window下的方法主要用法" class="headerlink" title="window下的方法主要用法"></a>window下的方法主要用法</h2><h4 id="1-阻塞异步执行"><a href="#1-阻塞异步执行" class="headerlink" title="1.阻塞异步执行"></a>1.阻塞异步执行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：1 秒之后，同时输出 5 个 5。同步循环已经执行完毕，才会执行事件队列里的回调</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123; </span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;      <span class="comment">//立刻执行函数</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);  </span><br><span class="line">         &#125;,<span class="number">1000</span>);  </span><br><span class="line">    &#125;)(i);  <span class="comment">//闭包保存局部变量的引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="2-改变this的指向"><a href="#2-改变this的指向" class="headerlink" title="2.改变this的指向"></a>2.改变this的指向</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;,<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;.bind(<span class="keyword">this</span>),<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="window下的方法主要用法"><a href="#window下的方法主要用法" class="headerlink" title="window下的方法主要用法"></a>window下的方法主要用法</h2><h4 id="1-阻塞异步执行"><a href="#1-阻塞异步执行" class="headerlink" title="1.阻塞异步执行"></a>1.阻塞异步执行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：1 秒之后，同时输出 5 个 5。同步循环已经执行完毕，才会执行事件队列里的回调</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123; </span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;      <span class="comment">//立刻执行函数</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);  </span><br><span class="line">         &#125;,<span class="number">1000</span>);  </span><br><span class="line">    &#125;)(i);  <span class="comment">//闭包保存局部变量的引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>promise异步会优先执行</p><h4 id="2-改变this的指向"><a href="#2-改变this的指向" class="headerlink" title="2.改变this的指向"></a>2.改变this的指向</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;,<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">"pig"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hello,my name is "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;.bind(<span class="keyword">this</span>),<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> weiqi = <span class="keyword">new</span> Person(<span class="string">"卫旗"</span>);</span><br><span class="line">weiqi.getName();   <span class="comment">//pig</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -83,8 +105,8 @@
   
   <entry>
     <title>vue组件系统</title>
-    <link href="http://yoursite.com/2018/03/31/vue%E7%BB%84%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://yoursite.com/2018/03/31/vue组件系统/</id>
+    <link href="https://samuelshang.github.io/2018/03/31/vue%E7%BB%84%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://samuelshang.github.io/2018/03/31/vue组件系统/</id>
     <published>2018-03-31T12:37:40.000Z</published>
     <updated>2018-03-31T12:53:38.000Z</updated>
     
@@ -104,8 +126,8 @@
   
   <entry>
     <title>深入浅出REST</title>
-    <link href="http://yoursite.com/2018/03/30/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAREST/"/>
-    <id>http://yoursite.com/2018/03/30/深入浅出REST/</id>
+    <link href="https://samuelshang.github.io/2018/03/30/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAREST/"/>
+    <id>https://samuelshang.github.io/2018/03/30/深入浅出REST/</id>
     <published>2018-03-30T12:04:36.000Z</published>
     <updated>2018-03-30T13:06:12.000Z</updated>
     
@@ -125,8 +147,8 @@
   
   <entry>
     <title>web-service</title>
-    <link href="http://yoursite.com/2018/03/30/web-service/"/>
-    <id>http://yoursite.com/2018/03/30/web-service/</id>
+    <link href="https://samuelshang.github.io/2018/03/30/web-service/"/>
+    <id>https://samuelshang.github.io/2018/03/30/web-service/</id>
     <published>2018-03-30T11:54:06.000Z</published>
     <updated>2018-03-30T12:03:36.000Z</updated>
     
@@ -146,8 +168,8 @@
   
   <entry>
     <title>Angularjs中controller之间的通信</title>
-    <link href="http://yoursite.com/2017/12/26/Angularjs%E4%B8%ADcontroller%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/"/>
-    <id>http://yoursite.com/2017/12/26/Angularjs中controller之间的通信/</id>
+    <link href="https://samuelshang.github.io/2017/12/26/Angularjs%E4%B8%ADcontroller%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/"/>
+    <id>https://samuelshang.github.io/2017/12/26/Angularjs中controller之间的通信/</id>
     <published>2017-12-26T07:32:55.000Z</published>
     <updated>2017-12-26T07:42:19.000Z</updated>
     
@@ -167,8 +189,8 @@
   
   <entry>
     <title>web路由</title>
-    <link href="http://yoursite.com/2017/09/17/web%E8%B7%AF%E7%94%B1/"/>
-    <id>http://yoursite.com/2017/09/17/web路由/</id>
+    <link href="https://samuelshang.github.io/2017/09/17/web%E8%B7%AF%E7%94%B1/"/>
+    <id>https://samuelshang.github.io/2017/09/17/web路由/</id>
     <published>2017-09-17T11:08:00.000Z</published>
     <updated>2017-09-17T11:25:09.000Z</updated>
     
@@ -193,8 +215,8 @@
   
   <entry>
     <title>js对Date日期的使用和处理</title>
-    <link href="http://yoursite.com/2017/09/14/js%E5%AF%B9Date%E6%97%A5%E6%9C%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%A4%84%E7%90%86/"/>
-    <id>http://yoursite.com/2017/09/14/js对Date日期的使用和处理/</id>
+    <link href="https://samuelshang.github.io/2017/09/14/js%E5%AF%B9Date%E6%97%A5%E6%9C%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%A4%84%E7%90%86/"/>
+    <id>https://samuelshang.github.io/2017/09/14/js对Date日期的使用和处理/</id>
     <published>2017-09-14T02:59:58.000Z</published>
     <updated>2017-09-14T03:00:18.000Z</updated>
     
@@ -215,8 +237,8 @@
   
   <entry>
     <title>登录验证</title>
-    <link href="http://yoursite.com/2017/09/14/%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/"/>
-    <id>http://yoursite.com/2017/09/14/登录验证/</id>
+    <link href="https://samuelshang.github.io/2017/09/14/%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/"/>
+    <id>https://samuelshang.github.io/2017/09/14/登录验证/</id>
     <published>2017-09-13T23:17:17.000Z</published>
     <updated>2017-09-15T22:52:20.000Z</updated>
     
@@ -236,8 +258,8 @@
   
   <entry>
     <title>vue组件设计</title>
-    <link href="http://yoursite.com/2017/09/12/vue%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://yoursite.com/2017/09/12/vue组件设计/</id>
+    <link href="https://samuelshang.github.io/2017/09/12/vue%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://samuelshang.github.io/2017/09/12/vue组件设计/</id>
     <published>2017-09-12T14:12:37.000Z</published>
     <updated>2017-09-12T14:13:28.000Z</updated>
     
@@ -258,8 +280,8 @@
   
   <entry>
     <title>angularjs开发过程中的问题及相关应用</title>
-    <link href="http://yoursite.com/2017/09/12/angularjs%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/09/12/angularjs开发过程中的问题及相关应用/</id>
+    <link href="https://samuelshang.github.io/2017/09/12/angularjs%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/"/>
+    <id>https://samuelshang.github.io/2017/09/12/angularjs开发过程中的问题及相关应用/</id>
     <published>2017-09-12T02:42:58.000Z</published>
     <updated>2017-11-21T13:28:07.000Z</updated>
     
@@ -279,8 +301,8 @@
   
   <entry>
     <title>使用地图服务</title>
-    <link href="http://yoursite.com/2017/09/12/%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://yoursite.com/2017/09/12/使用地图服务/</id>
+    <link href="https://samuelshang.github.io/2017/09/12/%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/"/>
+    <id>https://samuelshang.github.io/2017/09/12/使用地图服务/</id>
     <published>2017-09-12T02:30:46.000Z</published>
     <updated>2017-09-12T02:37:36.000Z</updated>
     
@@ -300,8 +322,8 @@
   
   <entry>
     <title>angularjs 数据绑定</title>
-    <link href="http://yoursite.com/2017/09/12/angularjs-%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
-    <id>http://yoursite.com/2017/09/12/angularjs-数据绑定/</id>
+    <link href="https://samuelshang.github.io/2017/09/12/angularjs-%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
+    <id>https://samuelshang.github.io/2017/09/12/angularjs-数据绑定/</id>
     <published>2017-09-11T23:23:21.000Z</published>
     <updated>2017-09-12T07:51:10.000Z</updated>
     
@@ -321,8 +343,8 @@
   
   <entry>
     <title>观察者模式</title>
-    <link href="http://yoursite.com/2017/08/13/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2017/08/13/观察者模式/</id>
+    <link href="https://samuelshang.github.io/2017/08/13/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://samuelshang.github.io/2017/08/13/观察者模式/</id>
     <published>2017-08-13T07:57:20.000Z</published>
     <updated>2017-09-12T00:02:11.000Z</updated>
     
@@ -342,8 +364,8 @@
   
   <entry>
     <title>闭包</title>
-    <link href="http://yoursite.com/2017/08/13/%E9%97%AD%E5%8C%85/"/>
-    <id>http://yoursite.com/2017/08/13/闭包/</id>
+    <link href="https://samuelshang.github.io/2017/08/13/%E9%97%AD%E5%8C%85/"/>
+    <id>https://samuelshang.github.io/2017/08/13/闭包/</id>
     <published>2017-08-13T01:33:08.000Z</published>
     <updated>2018-03-15T03:12:41.000Z</updated>
     
@@ -364,8 +386,8 @@
   
   <entry>
     <title>前后端分离</title>
-    <link href="http://yoursite.com/2017/08/12/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/"/>
-    <id>http://yoursite.com/2017/08/12/前后端分离/</id>
+    <link href="https://samuelshang.github.io/2017/08/12/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/"/>
+    <id>https://samuelshang.github.io/2017/08/12/前后端分离/</id>
     <published>2017-08-12T03:18:16.000Z</published>
     <updated>2017-09-12T03:35:57.000Z</updated>
     
