@@ -189,6 +189,61 @@
         <ul class="post-list">
         
             <li class="post-list-item fade">
+                <article id="post-数据流管理程"
+  class="article-card article-type-post" itemprop="blogPost">
+  
+        
+<div class="item-thumb">
+    <a class="thumb-link" href="/2019/08/12/数据流管理程/"></a>
+    <div class="thumb-hover">
+        <span class="icon icon-eye"></span>
+    </div>
+    <img src="/img/thumb/5.jpg" alt="图片路径不正确">
+    
+
+
+  
+    <h3 class="post-title ab-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/12/数据流管理程/">数据流管理程</a>
+    </h3>
+  
+
+
+
+</div>
+
+        
+    
+    
+    
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-12 16:45:26" datetime="2019-08-12T08:45:26.000Z"  itemprop="datePublished">2019-08-12</time>
+
+        
+
+
+        
+
+        
+
+
+        
+        
+    </div>
+    
+    <div class="post-content" id="post-content" itemprop="postContent">
+    
+    
+        数据变化，反应到页面
+
+    
+    </div>
+</article>
+
+
+            </li>
+        
+            <li class="post-list-item fade">
                 <article id="post-node入门"
   class="article-card article-type-post" itemprop="blogPost">
   
@@ -198,7 +253,7 @@
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/5.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/4.jpg" alt="图片路径不正确">
     
 
 
@@ -253,7 +308,7 @@
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/4.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/3.jpg" alt="图片路径不正确">
     
 
 
@@ -289,24 +344,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        js异步的实现
- 事件侦听
-
-事件触发后调用函数进行处理
-
-回调
-
-嵌套函数接受参数传回结果
-无论是事件还是回调，基本原理是一致的：
-
-把当前语句执行完；把不确定完成时间的计算交给系统；等待系统唤起回调。
-
+        js异步的实现基于事件循环的并发模型，函数可以作为变量传入其他函数，等函数执行时顺序调用回调函数
 回调函数存在的问题
 剥夺了使用 return 和 throw 这些关键字的能力。相反整个代码流程都是基于副作用的: 一个函数会附带调用其他函数。
 
 回调地狱：难以维护和复用
 
-多个异步计...
+多个异步计算同时进行，无法预期完成顺序，必须借助外层作用域的变量，有误操作风险
+
+破坏调用栈
+
+函数执行是一个“入栈/出...
     
     </div>
 </article>
@@ -324,7 +372,7 @@
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/3.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/2.jpg" alt="图片路径不正确">
     
 
 
@@ -379,7 +427,7 @@
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/2.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/1.jpg" alt="图片路径不正确">
     
 
 
@@ -416,61 +464,6 @@
     
     
         window下的方法主要用法1.阻塞异步执行1234567891011121314for (var i = 0; i &lt; 5; i++) &#123;    setTimeout(function() &#123;        console.log(i);    &#125;, 1000);&#125;//结果：1 秒之后，同时输出 5 个 5。同步循环已经执行完毕，才会执行事件队...
-    
-    </div>
-</article>
-
-
-            </li>
-        
-            <li class="post-list-item fade">
-                <article id="post-vue组件系统"
-  class="article-card article-type-post" itemprop="blogPost">
-  
-        
-<div class="item-thumb">
-    <a class="thumb-link" href="/2018/03/31/vue组件系统/"></a>
-    <div class="thumb-hover">
-        <span class="icon icon-eye"></span>
-    </div>
-    <img src="/img/thumb/1.jpg" alt="图片路径不正确">
-    
-
-
-  
-    <h3 class="post-title ab-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/31/vue组件系统/">vue组件系统</a>
-    </h3>
-  
-
-
-
-</div>
-
-        
-    
-    
-    
-    <div class="post-meta">
-        <time class="post-time" title="2018-03-31 20:37:40" datetime="2018-03-31T12:37:40.000Z"  itemprop="datePublished">2018-03-31</time>
-
-        
-
-
-        
-
-        
-
-
-        
-        
-    </div>
-    
-    <div class="post-content" id="post-content" itemprop="postContent">
-    
-    
-        组件（Component）是 Vue.js 最强大的功能之一使用 slot 分发内容开发过程中，常常需要在子组件内添加新的内容，这时候可以在子组件内部留一个或者多个插口 
-123456789101112131415&lt;template&gt;    &lt;div&gt;        &lt;slot&gt;        &lt;/slot&gt;        &lt;slot n...
     
     </div>
 </article>
