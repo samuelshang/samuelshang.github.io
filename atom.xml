@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://samuelshang.github.io/"/>
-  <updated>2019-08-12T08:46:08.000Z</updated>
+  <updated>2020-05-05T11:55:28.000Z</updated>
   <id>https://samuelshang.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mobx技术栈使用</title>
+    <link href="https://samuelshang.github.io/2020/05/05/mobx%E6%8A%80%E6%9C%AF%E6%A0%88%E4%BD%BF%E7%94%A8/"/>
+    <id>https://samuelshang.github.io/2020/05/05/mobx技术栈使用/</id>
+    <published>2020-05-05T09:44:10.000Z</published>
+    <updated>2020-05-05T11:55:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>状态是每个应用程序的核心。生成了不一致的状态或状态与本地变量的状态不同步，会造成应用程序很不容易管理，极易产生 bug。许多状态管理解决方案试图限制你修改状态的方式，比如使用不可变的 state。但这会带来了一些新的问题，比如数据必须规范化，完整性约束失效等</p><p>mobx 原理使用了defineProperty</p><p>mobx用来操作store（也就是数据操作层，model层），而mobx-react则是用来操作view（也就是视图层，Component层）</p><p>Mobx-react 主要api有inject，observer，provider</p><p>mobx 主要api有observable， action，computed，runInAction</p><h4 id="React组件中不再使用setState的原因"><a href="#React组件中不再使用setState的原因" class="headerlink" title="React组件中不再使用setState的原因"></a>React组件中不再使用setState的原因</h4><p>1.setState是异步的</p><p>2.setState会引起不必要的渲染</p><p>3、setState不足以管理所有的组件状态</p><p>管理复杂组件的状态不仅会触发重新渲染，还会导致一些相关的生命周期函数再次被触发，进而导致一些奇怪的状况</p><p>性能优化transaction，改变多个state的值，只渲染一次</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@action reset ()&#123;</span><br><span class="line">transaction(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.completed = <span class="literal">false</span></span><br><span class="line"><span class="keyword">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;状态是每个应用程序的核心。生成了不一致的状态或状态与本地变量的状态不同步，会造成应用程序很不容易管理，极易产生 bug。许多状态管理解决方案试图限制你修改状态的方式，比如使用不可变的 state。但这会带来了一些新的问题，比如数据必须规范化，完整性约束失效等&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redux</title>
+    <link href="https://samuelshang.github.io/2019/09/27/redux/"/>
+    <id>https://samuelshang.github.io/2019/09/27/redux/</id>
+    <published>2019-09-27T12:23:30.000Z</published>
+    <updated>2019-09-27T15:20:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Action-开发"><a href="#Action-开发" class="headerlink" title="Action 开发"></a>Action 开发</h3><blockquote><p>狭义的action是指一个简单的对象</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> actionObj= &#123;</span><br><span class="line">    type: <span class="string">'ACTION_NAME'</span>,</span><br><span class="line">    payload: &lt;bool | number | string | object&gt;, //action的负载，可以是数据或 error 对象</span><br><span class="line">    error: &lt;bool&gt;, // 指明该action是否是一个以 error 为负载的action</span><br><span class="line">    meta: &lt;string&gt; // action元数据， 包含解释该action含义的信息</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>广义的 action 是指在中间件的支持下，dispatch 函数可以调用的数据类型，除了普通action之外，常见的有 thunk, promise 等</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(dispatch, getState) =&gt; &#123; </span><br><span class="line">    <span class="comment">//在函数体内可以使用 dispatch 方法来发射其他 action</span></span><br><span class="line">    <span class="comment">//在函数体内可以使用 getState 方法来获取当前的state</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> pickAppleAction = <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123; </span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">'/pickApple'</span>,</span><br><span class="line">        method: <span class="string">'GET'</span>,</span><br><span class="line">    &#125;).done(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//发射普通 action</span></span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: <span class="string">'DONE_PICK_APPLE'</span>,</span><br><span class="line">            payload: data.weight <span class="comment">// 或者 payload: &#123;weight: data.weight&#125;</span></span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;).fail(<span class="function"><span class="params">xhr</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//发射普通 action, 其负载是一个error</span></span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: <span class="string">'FAIL_PICK_APPLE'</span>,</span><br><span class="line">            payload: <span class="keyword">new</span> <span class="built_in">Error</span>(xhr.responseText) ,</span><br><span class="line">            error: <span class="literal">true</span></span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">dispatch( pickAppleAction )</span><br></pre></td></tr></table></figure><blockquote><p>Action Creator</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传统写法</span></span><br><span class="line"><span class="keyword">var</span> eatApple = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: <span class="string">'EAT_APPLE'</span>, </span><br><span class="line">        payload: id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6 写法</span></span><br><span class="line"><span class="keyword">let</span> eatApple = <span class="function"><span class="params">id</span> =&gt;</span> (&#123;</span><br><span class="line">    type: <span class="string">'EAT_APPLE'</span>, </span><br><span class="line">    payload: id</span><br><span class="line">&#125;)</span><br><span class="line">dispatch(eatApple(<span class="number">3</span>))</span><br></pre></td></tr></table></figure><p>根据容器组件的动态布局划分出该reducer的state结构</p><p>容器的state我们是从store中的state直接获得</p><p>普通显示组件的state格式由组件开发人员自己约定即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Action-开发&quot;&gt;&lt;a href=&quot;#Action-开发&quot; class=&quot;headerlink&quot; title=&quot;Action 开发&quot;&gt;&lt;/a&gt;Action 开发&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;狭义的action是指一个简单的对象&lt;/p&gt;
+&lt;/bloc
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>数据流管理程</title>
@@ -65,9 +110,9 @@
     <link href="https://samuelshang.github.io/2019/04/19/js%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     <id>https://samuelshang.github.io/2019/04/19/js异步编程/</id>
     <published>2019-04-19T01:30:56.000Z</published>
-    <updated>2019-08-11T15:18:46.000Z</updated>
+    <updated>2019-08-18T15:14:39.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="js异步的实现"><a href="#js异步的实现" class="headerlink" title="js异步的实现"></a>js异步的实现</h3><p>基于事件循环的并发模型，函数可以作为变量传入其他函数，等函数执行时顺序调用回调函数</p><h4 id="回调函数存在的问题"><a href="#回调函数存在的问题" class="headerlink" title="回调函数存在的问题"></a>回调函数存在的问题</h4><ul><li><p>剥夺了使用 <code>return</code> 和 <code>throw</code> 这些关键字的能力。相反整个代码流程都是基于副作用的: 一个函数会附带调用其他函数。</p></li><li><p>回调地狱：难以维护和复用</p></li><li><p>多个异步计算同时进行，无法预期完成顺序，必须借助外层作用域的变量，有误操作风险</p></li><li><p>破坏调用栈</p><blockquote><p>函数执行是一个“入栈/出栈”的过程。当我们在 A 函数里调用 B 函数的时候，JS 引擎就会先把 A 压到栈里，然后再把 B 压到栈里；B 运行结束后，出栈，然后继续执行 A；A 也运行完毕后，出栈，栈已清空，这次运行结束。中断代码执行，可以检索完整的堆栈，完整的作用域链（闭包），获取信息。可是异步回调函数不完全如此，都不会直接调用回调函数，而是继续执行其它代码，直至完成，出栈。真正调用回到函数的是引擎，并且是启用一个新栈，压入栈成为第一个函数。所以如果回调报错，无法获取之前启动异步计算时栈里的信息，无法捕获回调函数抛出的错误,不容易判定什么导致了错误</p></blockquote></li></ul><h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>then接受的是两个函数作为参数</p><ol><li><code>return</code> 另一个 promise</li><li><code>return</code> 一个同步的值 (或者 <code>undefined</code>)</li><li><code>throw</code> 一个同步异常</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'foo'</span>).then(<span class="built_in">Promise</span>.resolve(<span class="string">'bar'</span>)).then(<span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// foo 而不是bar</span></span><br><span class="line"></span><br><span class="line"> then() 传递的并非是一个函数（比如 promise），它实际上会将其解释为 then(<span class="literal">null</span>)，这就会导致前一个 promise 的结果会穿透下面</span><br></pre></td></tr></table></figure><p>存在的问题：</p><p>只能解决代码不好阅读，不易维护的问题，面对语言本身的问题，它也无能为力。异步回调在执行的时候，会切断前后栈的联系。</p><p> Promise 的执行器只能捕获到异步函数抛出的错误，无法捕获回调函数抛出的错误。</p><p>异步函数（await/async）是新的语法，改变了运行时，所以可以继续检索堆栈，完全不会有这方面的问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function b() &#123;</span><br><span class="line">  </span><br><span class="line">  let abc = 32;</span><br><span class="line">  return abc;</span><br><span class="line">&#125;</span><br><span class="line">function a() &#123;</span><br><span class="line">  b();</span><br><span class="line">  return 123;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="js异步的实现"><a href="#js异步的实现" class="headerlink" title="js异步的实现"></a>js异步的实现</h3><p>基于事件循环的并发模型，函数可以作为变量传入其他函数，等函数执行时顺序调用回调函数</p><h4 id="回调函数存在的问题"><a href="#回调函数存在的问题" class="headerlink" title="回调函数存在的问题"></a>回调函数存在的问题</h4><ul><li><p>剥夺了使用 <code>return</code> 和 <code>throw</code> 这些关键字的能力。相反整个代码流程都是基于副作用的: 一个函数会附带调用其他函数。</p></li><li><p>回调地狱：难以维护和复用</p></li><li><p>多个异步计算同时进行，无法预期完成顺序，必须借助外层作用域的变量，有误操作风险</p></li><li><p>破坏调用栈</p><blockquote><p>函数执行是一个“入栈/出栈”的过程。当我们在 A 函数里调用 B 函数的时候，JS 引擎就会先把 A 压到栈里，然后再把 B 压到栈里；B 运行结束后，出栈，然后继续执行 A；A 也运行完毕后，出栈，栈已清空，这次运行结束。中断代码执行，可以检索完整的堆栈，完整的作用域链（闭包），获取信息。可是异步回调函数不完全如此，都不会直接调用回调函数，而是继续执行其它代码，直至完成，出栈。真正调用回到函数的是引擎，并且是启用一个新栈，压入栈成为第一个函数。所以如果回调报错，无法获取之前启动异步计算时栈里的信息，无法捕获回调函数抛出的错误,不容易判定什么导致了错误</p></blockquote></li></ul><p> 回调函数的调用控制交与第三方函数内部，无法保证回调函数一定会被正确调用。可能出现很多异常情况：所需参数传递错误、调用回调过早或过晚、调用回调次数太多或太少、吞掉可能出现的错误与异常等等。 回调函数是 JavaScript 异步的基本单元</p><h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>希望第三方给我们提供了解其任务何时结束的能力，然后由我们自己的代码来决定下一步做什么。这种范式就称为<code>Promise</code>。</p><p>then接受的是两个函数作为参数</p><ol><li><code>return</code> 另一个 promise</li><li><code>return</code> 一个同步的值 (或者 <code>undefined</code>)</li><li><code>throw</code> 一个同步异常</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'foo'</span>).then(<span class="built_in">Promise</span>.resolve(<span class="string">'bar'</span>)).then(<span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// foo 而不是bar</span></span><br><span class="line"></span><br><span class="line"> then() 传递的并非是一个函数（比如 promise），它实际上会将其解释为 then(<span class="literal">null</span>)，这就会导致前一个 promise 的结果会穿透下面</span><br></pre></td></tr></table></figure><p>存在的问题：</p><p>只能解决代码不好阅读，不易维护的问题，面对语言本身的问题，它也无能为力。异步回调在执行的时候，会切断前后栈的联系。</p><p> Promise 的执行器只能捕获到异步函数抛出的错误，无法捕获回调函数抛出的错误。</p><p>异步函数（await/async）是新的语法，改变了运行时，所以可以继续检索堆栈，完全不会有这方面的问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function b() &#123;</span><br><span class="line">  </span><br><span class="line">  let abc = 32;</span><br><span class="line">  return abc;</span><br><span class="line">&#125;</span><br><span class="line">function a() &#123;</span><br><span class="line">  b();</span><br><span class="line">  return 123;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -399,30 +444,6 @@
       
         &lt;h1 id=&quot;什么是闭包？&quot;&gt;&lt;a href=&quot;#什么是闭包？&quot; class=&quot;headerlink&quot; title=&quot;什么是闭包？&quot;&gt;&lt;/a&gt;什么是闭包？&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;闭包是在函数内部可访问的局部变量&lt;/strong&gt;&lt;/p&gt;
 &lt;figure class=&quot;h
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前后端分离</title>
-    <link href="https://samuelshang.github.io/2017/08/12/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/"/>
-    <id>https://samuelshang.github.io/2017/08/12/前后端分离/</id>
-    <published>2017-08-12T03:18:16.000Z</published>
-    <updated>2019-05-10T14:42:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p> 好处</p></blockquote><p>前端倾向于呈现，着重处理用户体验相关的问题；后端则倾处于业务逻辑、数据处理和持久化等。在设计清晰的情况下，后端只需要以数据为中心对业务处理算法负责，并按约定为前端提供 API 接口；而前端使用这些接口对用户体验负责。</p><blockquote><p>缺点</p></blockquote><p>业务处理几乎都是由后端（原来的技术骨干）来设计和定义的，前端处理过程中常常发现接口定义不符合用户操作流程，AJAX 异步请求过多等问题。从前端的角度来看，重点关注的是用户体验，包括用户在进行业务操作时的流动方向和相关处理；而从后端的角度来看，重点关注的是数据完整、有效、安全。接口粒度太小，前端要处理的事情就多，尤其是对各种异步处理就可能会感到应接不暇；粒度太大，就会出现高耦合，降低灵活性和扩展性，当然这种情况下后端的工作就轻松不了。</p><p>前端设计的产品从大的层面可以分成两种：<br>a. 浏览类：以内容展现为主，辅以少量交互，如首页、促销页<br>b. 应用类：包含大量交互，和复杂的功能，如控制台<br> 前后台配合开发通常有以下两种形式：<br>a. 前端完成静态页面，后台改成动态模板（后台渲染并提供数据）<br>b. 前端使用动态模板或 MVVM（AngularJS，Vue） 框架，后台只提供数据（前端渲染，后台提供数据）</p><h1 id="应用类"><a href="#应用类" class="headerlink" title="应用类"></a>应用类</h1><p>对于这种需求，由于前后端是天然分离的，所以做的工作主要是约定好数据的交互，避免后台提供的数据与前端要求的不一致。</p><p>在和后台对接接口的时候，为避免前端配置后台环境，可以使用 Nginx 反向代理，Nginx 监听 80 端口，静态请求由 Nginx 处理，动态请求转发给后端服务。</p><p>MVVM 框架也有自身的缺点，由于模板在浏览器端渲染，会存在空白页、SEO 或性能的问题，而且对浏览器的版本也有要求（IE8 + 或 IE9+），所以，可以根据自己项目的实际情况选择，通常对于管控类项目还是比较合适的。</p><p>另外，使用 MVVM 框架开发大规模 Web App 时，对项目的路由设置、分层、模块划分、代码规范等都有一定要求。</p><h1 id="浏览类"><a href="#浏览类" class="headerlink" title="浏览类"></a>浏览类</h1><p>前端写后台模板<br>通常由前端完成静态页面然后后台来套模板，但后台可能会套错，沟通成本很高。更合适的方式可能是直接由前端写后台模板，但前端又需要配置后台环境，也很麻烦。</p><p>一种解决办法是，使用 Node 实现一套解析后台模板的库，这样前端无需配置后台环境就能写后台模板。比如对于阿里后台用的 Velocity 模板，就有一个 Node 解析的方案，开源的也有百度的 jello。这样前端可以直接预览 vm，并使用 JSON 进行数据模拟，在开发前制定好接口，前后端就可以独立开发。</p><p>中间加一层 Node</p><p>在以往前端后台的中间加一层 Node，这样，浏览器中的前端层和 Node 层由前端人员开发。其中，浏览器层进行 JS、CSS 的渲染和 DOM 等操作，Node 层进行页面渲染、数据转发、路由等操作。而且，Node 层可以和浏览器共用验证、路由等。</p><p>具体的案例可参看淘宝的 中途岛 项目</p><p>这个方案的挑战是，前端人员需要掌握更多服务器端编程的知识。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://my.oschina.net/bobolu/blog/94382" target="_blank" rel="noopener"> Web 前后端研发模式的思考</a><br><a href="http://blog.jobbole.com/65509/" target="_blank" rel="noopener">Web 研发模式的演变</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt; 好处&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;前端倾向于呈现，着重处理用户体验相关的问题；后端则倾处于业务逻辑、数据处理和持久化等。在设计清晰的情况下，后端只需要以数据为中心对业务处理算法负责，并按约定为前端提供 API 接口；而前端使用这些接
       
     
     </summary>

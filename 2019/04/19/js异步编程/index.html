@@ -220,7 +220,9 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>then接受的是两个函数作为参数</p>
+<p> 回调函数的调用控制交与第三方函数内部，无法保证回调函数一定会被正确调用。可能出现很多异常情况：所需参数传递错误、调用回调过早或过晚、调用回调次数太多或太少、吞掉可能出现的错误与异常等等。 回调函数是 JavaScript 异步的基本单元</p>
+<h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>希望第三方给我们提供了解其任务何时结束的能力，然后由我们自己的代码来决定下一步做什么。这种范式就称为<code>Promise</code>。</p>
+<p>then接受的是两个函数作为参数</p>
 <ol>
 <li><code>return</code> 另一个 promise</li>
 <li><code>return</code> 一个同步的值 (或者 <code>undefined</code>)</li>
@@ -238,7 +240,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-08-11T15:18:46.000Z" itemprop="dateUpdated">2019-08-11 23:18:46</time>
+    Last updated: <time datetime="2019-08-18T15:14:39.000Z" itemprop="dateUpdated">2019-08-18 23:14:39</time>
 </span><br>
 
 
@@ -387,7 +389,7 @@
     <div class="bottom">
         <p>
             <span>
-                Samuel shang &copy; 2017 - 2019
+                Samuel shang &copy; 2017 - 2020
             </span>
         		
            	

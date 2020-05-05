@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>深入浅出REST | 闻道有先后,术业有专攻 | 一万个小时理论坚定拥趸者</title>
+    <title>redux | 闻道有先后,术业有专攻 | 一万个小时理论坚定拥趸者</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="">
@@ -143,7 +143,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>深入浅出REST</span>
+            <span>redux</span>
             
         </div>
         
@@ -156,11 +156,11 @@
 <header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">深入浅出REST</h1>
+        <h1 class="title">redux</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-03-30T12:04:36.000Z" itemprop="datePublished" class="page-time">
-  2018-03-30
+                <time datetime="2019-09-27T12:23:30.000Z" itemprop="datePublished" class="page-time">
+  2019-09-27
 </time>
 
 
@@ -187,12 +187,12 @@
 
 
 <div class="container body-wrap">
-    <article id="post-深入浅出REST"
+    <article id="post-redux"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">深入浅出REST</h1>
+        <h1 class="post-card-title">redux</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-03-30 20:04:36" datetime="2018-03-30T12:04:36.000Z"  itemprop="datePublished">2018-03-30</time>
+            <time class="post-time" title="2019-09-27 20:23:30" datetime="2019-09-27T12:23:30.000Z"  itemprop="datePublished">2019-09-27</time>
 
             
 
@@ -206,16 +206,21 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h3 id="REST定义了应该如何正确地使用Web标准，例如HTTP和URI。"><a href="#REST定义了应该如何正确地使用Web标准，例如HTTP和URI。" class="headerlink" title="REST定义了应该如何正确地使用Web标准，例如HTTP和URI。"></a>REST定义了应该如何正确地使用Web标准，例如HTTP和URI。</h3><p>如果你在设计应用程序时能坚持REST原则，那就预示着你将会得到一个使用了优质Web架构（这将让你受益）的系统。</p>
-<ul>
-<li>为所有“事物”定义ID</li>
-<li>将所有事物链接在一起</li>
-<li>使用标准方法</li>
-<li>资源多重表述</li>
-<li>无状态通信</li>
-</ul>
-<p>RESTful Web Service (又称 RESTful Web API) 是一个使用 HTTP 并符合 REST 原则的 Web 服务。我们知道，通过 URL 可以传送 HTTP请求进行状态转换。</p>
-<p>在 RESTful 每个资源有自己独立的 URI， Client 从资源集合或单个资源开始进入，不管是资源集合或单个资源，我们都能与 HTTP 方法配合使用，例如，GET 下载，PUT 更新，POST 新增，DELETE 删除。</p>
+            <h3 id="Action-开发"><a href="#Action-开发" class="headerlink" title="Action 开发"></a>Action 开发</h3><blockquote>
+<p>狭义的action是指一个简单的对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> actionObj= &#123;</span><span class="line">    type: <span class="string">'ACTION_NAME'</span>,</span><span class="line">    payload: &lt;bool | number | string | object&gt;, //action的负载，可以是数据或 error 对象</span><span class="line">    error: &lt;bool&gt;, // 指明该action是否是一个以 error 为负载的action</span><span class="line">    meta: &lt;string&gt; // action元数据， 包含解释该action含义的信息</span><span class="line">&#125;</span></pre></td></tr></table></figure>
+<blockquote>
+<p>广义的 action 是指在中间件的支持下，dispatch 函数可以调用的数据类型，除了普通action之外，常见的有 thunk, promise 等</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(dispatch, getState) =&gt; &#123; </span><br><span class="line">    <span class="comment">//在函数体内可以使用 dispatch 方法来发射其他 action</span></span><br><span class="line">    <span class="comment">//在函数体内可以使用 getState 方法来获取当前的state</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> pickAppleAction = <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123; </span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">'/pickApple'</span>,</span><br><span class="line">        method: <span class="string">'GET'</span>,</span><br><span class="line">    &#125;).done(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//发射普通 action</span></span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: <span class="string">'DONE_PICK_APPLE'</span>,</span><br><span class="line">            payload: data.weight <span class="comment">// 或者 payload: &#123;weight: data.weight&#125;</span></span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;).fail(<span class="function"><span class="params">xhr</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//发射普通 action, 其负载是一个error</span></span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: <span class="string">'FAIL_PICK_APPLE'</span>,</span><br><span class="line">            payload: <span class="keyword">new</span> <span class="built_in">Error</span>(xhr.responseText) ,</span><br><span class="line">            error: <span class="literal">true</span></span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">dispatch( pickAppleAction )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Action Creator</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传统写法</span></span><br><span class="line"><span class="keyword">var</span> eatApple = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: <span class="string">'EAT_APPLE'</span>, </span><br><span class="line">        payload: id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6 写法</span></span><br><span class="line"><span class="keyword">let</span> eatApple = <span class="function"><span class="params">id</span> =&gt;</span> (&#123;</span><br><span class="line">    type: <span class="string">'EAT_APPLE'</span>, </span><br><span class="line">    payload: id</span><br><span class="line">&#125;)</span><br><span class="line">dispatch(eatApple(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<p>根据容器组件的动态布局划分出该reducer的state结构</p>
+<p>容器的state我们是从store中的state直接获得</p>
+<p>普通显示组件的state格式由组件开发人员自己约定即可</p>
 
         </div>
         
@@ -223,12 +228,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-03-30T13:06:12.000Z" itemprop="dateUpdated">2018-03-30 21:06:12</time>
+    Last updated: <time datetime="2019-09-27T15:20:17.000Z" itemprop="dateUpdated">2019-09-27 23:20:17</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2018/03/30/深入浅出REST/" target="_blank" rel="external">https://samuelshang.github.io/2018/03/30/深入浅出REST/</a>
+        转载注明出处，原文地址：<a href="/2019/09/27/redux/" target="_blank" rel="external">https://samuelshang.github.io/2019/09/27/redux/</a>
         
     </div>
     <footer>
@@ -255,7 +260,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2018/03/30/深入浅出REST/&title=《深入浅出REST》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2019/09/27/redux/&title=《redux》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -267,7 +272,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2018/03/30/深入浅出REST/&title=《深入浅出REST》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2019/09/27/redux/&title=《redux》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -293,18 +298,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="prev">
-      <a href="/2018/03/31/vue组件系统/" id="post-prev" class="post-nav-link">
+      <a href="/2020/05/05/mobx技术栈使用/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">vue组件系统</h4>
+        <h4 class="title">mobx技术栈使用</h4>
       </a>
     </div>
   
 
   
     <div class="next">
-      <a href="/2018/03/30/web-service/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/12/数据流管理程/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">web-service</h4>
+        <h4 class="title">数据流管理程</h4>
       </a>
     </div>
   
@@ -316,7 +321,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#REST定义了应该如何正确地使用Web标准，例如HTTP和URI。"><span class="post-toc-number">1.</span> <span class="post-toc-text">REST定义了应该如何正确地使用Web标准，例如HTTP和URI。</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Action-开发"><span class="post-toc-number">1.</span> <span class="post-toc-text">Action 开发</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
@@ -398,7 +403,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2018/03/30/深入浅出REST/&title=《深入浅出REST》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://samuelshang.github.io/2019/09/27/redux/&title=《redux》 — 闻道有先后,术业有专攻&pic=https://samuelshang.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -410,7 +415,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2018/03/30/深入浅出REST/&title=《深入浅出REST》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://samuelshang.github.io/2019/09/27/redux/&title=《redux》 — 闻道有先后,术业有专攻&source=尚李飞的博客 学习总结 思考感悟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -422,7 +427,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQZKDMAxE0dz/0swBGMhvCabG1meVSkjw86JjS/588HWcrvOn5M6rXz5/9/PGJUOGjGUZx+11/4D0wVd3kud+mSAZMmQMYJAoJBF59Q6P2vS7MmTIkHH/mgydLCv5s2TIkCGDMJ6N6X5Yy5AhYw6DbGLTrSn5lITvw3txGTJkLMhIy2R/+fqV/oYMGTKWYhzhlZbGSESmIfvLb8qQIWNrBg+4zuGJ+8HVAleGDBlzGGkgpqFcmwJe2ivmugwZMpZi1A468EZmOtDW1MiQIWNrRr80zw9S3C8i06iVIUPGHEancPZUwY63Kr+U22TIkDGSwUOTF+A6xbX4v0KGDBlbMJ4q8fM2QBr05FMZMmTszUgbip3B1Up4cdVQhgwZ2zHS5VftnrRgl06fDBky9mY8VRqrLelIHBcPW8iQIWM7Bl+6pQAS5Z1fliFDxgQGb1KmW1l+kIKDZciQMZPBG5YkIl85SMEPW8iQIWNTBt8b9kv5JPuLi0IZMmRszagV5dNoTiciLuTJkCFjDIO0FdOhdw5+8YmWIUPGBAYZSrqYSw9b8KWqDBky5jBqpbHOPTxMA6oMGTK2ZqRFt/sFX20zXFtWtmqHMmTIWJDBA5SX0tKGZYcqQ4aMOYx+8PEB1RoMwZkRGTJkjGfUFou1xmewiZUhQ4aMcLjpIq82ZS/+b8iQIeNfMvqFfr6h5f3VV8ptMmTIWJDBt458WGk096NfhgwZmzJ+AKfwqHbFJuDZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3aS46DMBBFUfa/aVrqUaSO4b4ytOTy9QglJPgwKNXHx4HX+bv+fvK5Rr/6/PYcrNH9Dy8ZMmQsyzgvF79nxL5+BdcvJXiuDBkyNmCQrbwROkdIvjcZMmTIICSSLPLQKUOGDBlvMJ7dnAwZMmTMFLHXJJIg1q4frsVlyJCxICMdDPzn9YvzDRkyZCzCOMNVa/Q/O4v8sisZMmS0ZpDxISk1eYs/KEoB8iDdPhkyZCzO4FtJm/4kjPKh6U2IlyFDRmvGTO070+i/fmJ6QE2GDBl7MtLAx0N27QWh5FWGDBlNGTwgpildLYCmyDiuy5AhY0FGGubS4QEva2eeK0OGjB0YtQMQJESSpLM2zrzJcGXIkNGIUYvNtcQuHZTyoCxDhowdGLV68L3tXgf9YcCVIUNGawb5GWnAzTTjSBF7c2ZEhgwZrRnpcYo3mmu1p8uQIWMHBknL0vSuVtzWmm4yZMjYk1F75MwRDf5qbtgyZMhozeDBLm7Z41SPp4DpEFSGDBmrM/iJjHScWTtmEZwQkSFDhgyQnNWaa2lYR69AhgwZrRkz5WItBSQbTVtvMmTI6M04w5UmhfyemX+TIUNGb0baV6/17dKDX6RwlSFDxm4M/te8AVdr1fHQHFTkMmTIaMRIm1w8FKZBtnbgQ4YMGTL42GBmeMD38+UTGTJkyMAVcBqm+SATFbEyZMhozeBFbLq5Wombjg1kyJDRm1ErHXmxOn+c4oHhpQwZMlZl/ABkFfUbbaBX0wAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
