@@ -189,6 +189,62 @@
         <ul class="post-list">
         
             <li class="post-list-item fade">
+                <article id="post-hooks"
+  class="article-card article-type-post" itemprop="blogPost">
+  
+        
+<div class="item-thumb">
+    <a class="thumb-link" href="/2021/05/21/hooks/"></a>
+    <div class="thumb-hover">
+        <span class="icon icon-eye"></span>
+    </div>
+    <img src="/img/thumb/5.jpg" alt="图片路径不正确">
+    
+
+
+  
+    <h3 class="post-title ab-title" itemprop="name">
+      <a class="post-title-link" href="/2021/05/21/hooks/">hooks</a>
+    </h3>
+  
+
+
+
+</div>
+
+        
+    
+    
+    
+    <div class="post-meta">
+        <time class="post-time" title="2021-05-21 23:24:38" datetime="2021-05-21T15:24:38.000Z"  itemprop="datePublished">2021-05-21</time>
+
+        
+
+
+        
+
+        
+
+
+        
+        
+    </div>
+    
+    <div class="post-content" id="post-content" itemprop="postContent">
+    
+    
+        Hooks就完全是一个function为了更好的解决业务逻辑复用的需求，react有了hooks，vue3有了composition api，虽然避免了mixin，高阶组件的嵌套太深等痛点，但引入了新的心智成本
+react hook每次都要调用，忘记传递正确的依赖项数组，useEffect 和 useMemo 可能会捕获过时的变量
+vue 虽然只调用一次，ref在js里进行读取/赋值的时候，...
+    
+    </div>
+</article>
+
+
+            </li>
+        
+            <li class="post-list-item fade">
                 <article id="post-mobx技术栈使用"
   class="article-card article-type-post" itemprop="blogPost">
   
@@ -198,7 +254,7 @@
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/5.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/4.jpg" alt="图片路径不正确">
     
 
 
@@ -254,7 +310,7 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/4.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/3.jpg" alt="图片路径不正确">
     
 
 
@@ -311,13 +367,13 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/3.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/2.jpg" alt="图片路径不正确">
     
 
 
   
     <h3 class="post-title ab-title" itemprop="name">
-      <a class="post-title-link" href="/2019/08/12/数据流管理程/">数据流管理程</a>
+      <a class="post-title-link" href="/2019/08/12/数据流管理程/">vue组件通信</a>
     </h3>
   
 
@@ -347,7 +403,7 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        数据变化，反应到页面
+        组件封装会碰到之间通信props属性传递数据$emit、@on，事件触发与事件监听ref引用获取组件实例parent、children，获取当前组件的父组件、子组件通过 provide / inject 来实现共享数据状态管理 vuexvue bus
 
     
     </div>
@@ -366,7 +422,7 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
     <div class="thumb-hover">
         <span class="icon icon-eye"></span>
     </div>
-    <img src="/img/thumb/2.jpg" alt="图片路径不正确">
+    <img src="/img/thumb/1.jpg" alt="图片路径不正确">
     
 
 
@@ -411,70 +467,6 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
 
             </li>
         
-            <li class="post-list-item fade">
-                <article id="post-js异步编程"
-  class="article-card article-type-post" itemprop="blogPost">
-  
-        
-<div class="item-thumb">
-    <a class="thumb-link" href="/2019/04/19/js异步编程/"></a>
-    <div class="thumb-hover">
-        <span class="icon icon-eye"></span>
-    </div>
-    <img src="/img/thumb/1.jpg" alt="图片路径不正确">
-    
-
-
-  
-    <h3 class="post-title ab-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/19/js异步编程/">js异步编程</a>
-    </h3>
-  
-
-
-
-</div>
-
-        
-    
-    
-    
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-19 09:30:56" datetime="2019-04-19T01:30:56.000Z"  itemprop="datePublished">2019-04-19</time>
-
-        
-
-
-        
-
-        
-
-
-        
-        
-    </div>
-    
-    <div class="post-content" id="post-content" itemprop="postContent">
-    
-    
-        js异步的实现基于事件循环的并发模型，函数可以作为变量传入其他函数，等函数执行时顺序调用回调函数
-回调函数存在的问题
-剥夺了使用 return 和 throw 这些关键字的能力。相反整个代码流程都是基于副作用的: 一个函数会附带调用其他函数。
-
-回调地狱：难以维护和复用
-
-多个异步计算同时进行，无法预期完成顺序，必须借助外层作用域的变量，有误操作风险
-
-破坏调用栈
-
-函数执行是一个“入栈/出...
-    
-    </div>
-</article>
-
-
-            </li>
-        
         </ul>
         
 <nav id="page-nav">
@@ -505,7 +497,7 @@ mobx用来操作store（也就是数据操作层，model层），而mobx-react..
     <div class="bottom">
         <p>
             <span>
-                Samuel shang &copy; 2017 - 2020
+                Samuel shang &copy; 2017 - 2021
             </span>
         		
            	

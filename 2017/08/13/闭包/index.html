@@ -206,8 +206,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h1 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h1><p><strong>闭包是在函数内部可访问的局部变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span><span class="line">6</span><span class="line">7</span><span class="line">8</span><span class="line">9</span></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><span class="line">    var local = &apos;a&apos;;</span><span class="line">    function b() &#123;</span><span class="line">        return local++;</span><span class="line">    &#125;</span><span class="line">    return b  //必须要return 让外部可以访问这个函数</span><span class="line">&#125;</span><span class="line">var c = a();</span><span class="line">c();</span></pre></td></tr></table></figure>
+            <h1 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h1><p><strong>闭包是在函数内部可访问的局部变量，延迟变量的生命周期</strong></p>
 <p>函数嵌套是为了造出一个局部变量</p>
 <h1 id="闭包的作用？"><a href="#闭包的作用？" class="headerlink" title="闭包的作用？"></a>闭包的作用？</h1><ul>
 <li><strong>闭包是为了隐藏变量</strong></li>
@@ -215,7 +214,7 @@
 <p>为什么要使用闭包？为了避免变量污染，隐藏全局变量，使用局部变量，但局部变量在函数运行完就回收了外部访问不到，而闭包可以可以延长局部变量的生命周期，在外部也可以访问局部变量。  </p>
 <ul>
 <li><p><strong>用闭包保存状态</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var elems = document.getElementsByTagName(&apos;a&apos;);</span><br><span class="line">for (var i = 0; i &lt; elems.length; i++) &#123;</span><br><span class="line">    elems[i].addEventListener(&apos;click&apos;, function (e) &#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        alert(i);</span><br><span class="line">    &#125;, &apos;false&apos;);</span><br><span class="line">&#125;;</span><br><span class="line">当循环执行以后，我们在点击的时候i才获得数值，最终显示的都是同一个数字</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span><span class="line">6</span><span class="line">7</span><span class="line">8</span></pre></td><td class="code"><pre><span class="line">var elems = document.getElementsByTagName(&apos;a&apos;);</span><span class="line">for (var i = 0; i &lt; elems.length; i++) &#123;</span><span class="line">    elems[i].addEventListener(&apos;click&apos;, function (e) &#123;</span><span class="line">        e.preventDefault();</span><span class="line">        alert(i);</span><span class="line">    &#125;, &apos;false&apos;);</span><span class="line">&#125;;</span><span class="line">当循环执行以后，我们在点击的时候i才获得数值，最终显示的都是同一个数字</span></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var elems = document.getElementsByTagName(&apos;a&apos;);</span><br><span class="line">for (var i = 0; i &lt; elems.length; i++) &#123;</span><br><span class="line">    (function (lockedInIndex) &#123;</span><br><span class="line">        elems[i].addEventListener(&apos;click&apos;, function (e) &#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            alert( lockedInIndex);</span><br><span class="line">        &#125;, &apos;false&apos;);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​</p>
 </li>
@@ -228,7 +227,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-03-15T03:12:41.000Z" itemprop="dateUpdated">2018-03-15 11:12:41</time>
+    Last updated: <time datetime="2021-05-21T15:18:15.332Z" itemprop="dateUpdated">2021-05-21 23:18:15</time>
 </span><br>
 
 
@@ -377,7 +376,7 @@
     <div class="bottom">
         <p>
             <span>
-                Samuel shang &copy; 2017 - 2020
+                Samuel shang &copy; 2017 - 2021
             </span>
         		
            	
